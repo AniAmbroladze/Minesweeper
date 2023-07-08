@@ -1,4 +1,3 @@
-import pygame
 from cell import Cell
 import random
 
@@ -36,8 +35,7 @@ class Board():
         for row in range(self.size[0]):
             for col in range(self.size[1]):
                 if self.board[row][col].hasMine == False:
-                    self.board[row][col].numMines = self.getNumSurroundingMines(
-                        row, col)
+                    self.board[row][col].numMines = self.getNumSurroundingMines(row, col)
 
     def getNumSurroundingMines(self, row, col):
         nMines = 0
