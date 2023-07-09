@@ -37,8 +37,11 @@ class UI():
 
     def run(self):
         pygame.init()
-        clock = pygame.time.Clock()
         self.screen = pygame.display.set_mode(self.screenSize)
+        windowIcon = pygame.image.load("images/guess.png")
+        pygame.display.set_icon(windowIcon)
+        pygame.display.set_caption("Minesweeper")
+
         self.drawGrid()
 
         running = True
@@ -66,7 +69,7 @@ class UI():
 
             self.display(mousePos)
             pygame.display.update()
-            clock.tick(60)
+
         pygame.quit()
 
     def displayButtons(self,buttons,mousePos):
