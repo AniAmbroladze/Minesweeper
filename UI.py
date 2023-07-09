@@ -114,7 +114,7 @@ class UI():
         if self.gameState == "init":
                 button = [["EASY", (333, 333), [9,9], 10],
                          ["MEDIUM", (592, 592), [16,16], 40],
-                         ["DIFFICULT", (1110,592), [30,16], 99]]
+                         ["HARD", (1110,592), [30,16], 99]]
         elif self.gameState == "over":
                 button = [["New Game"]]
         self.displayButtons(button,mousePos)
