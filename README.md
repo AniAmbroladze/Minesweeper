@@ -6,7 +6,7 @@ The puzzle game implemented using Pygame.
 * Hard: 30x16 with 99 mines
 <img src="https://github.com/AniAmbroladze/Minesweeper/assets/45206411/a0b43d2d-6b29-4ae9-bd4a-b44257566488" width=50% height=50%>
 
-### Playing State
+### Play Mode
 <img src="https://github.com/AniAmbroladze/Minesweeper/assets/45206411/eff61760-dc3c-4a31-9a9f-a8a487c7ddf7" width=50% height=50%>
 
 The window size adjusted to medium level
