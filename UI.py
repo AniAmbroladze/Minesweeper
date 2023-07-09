@@ -120,39 +120,37 @@ class UI():
     def handleClick(self, x, y, clickType):
         leftClick = 1
         rightClick = 3
+
         if clickType == rightClick:
+            if self.board[x][y].isFlagged:
+                self.boardClass.totalNumFlaggedCells -= 1
+            else:
+                self.boardClass.totalNumFlaggedCells += 1
             self.board[x][y].unflagORflagCell()
-            self.boardClass.totalNumFlaggedCells += 1
+
         elif clickType == leftClick:
             if self.board[x][y].isClosed:
-                if self.board[x][y].isFlagged:
-                    self.board[x][y].unflagORflagCell()
-                    self.boardClass.totalNumFlaggedCells -= 1
-                else:
-                    self.board[x][y].revealCell()
-                    self.boardClass.openCellSet.add((x, y))
-                    if self.board[x][y].numMines == 0:
-                        for neigh in self.board[x][y].neighList:
-                            neigh_x, neigh_y = neigh
-                            if not neigh in self.boardClass.openCellSet:
-                                self.handleClick(neigh_x, neigh_y, leftClick)
+                self.board[x][y].revealCell()
+                self.boardClass.openCellSet.add((x, y))
+                if self.board[x][y].numMines == 0:
+                    for neigh in self.board[x][y].neighList:
+                        neigh_x, neigh_y = neigh
+                        if not neigh in self.boardClass.openCellSet:
+                            self.handleClick(neigh_x, neigh_y, leftClick)
         self.checkGameState(x, y)
 
     def checkGameState(self, x, y):
         if self.board[x][y].lost:
             self.gameState = "over"
-            self.popUpWindow("lost")
+            print("You lost :(")
             for x in range((self.boardSize[0])):
                 for y in range((self.boardSize[1])):
                     if self.board[x][y].isClosed:
                         self.board[x][y].revealCell()
         else:
-            if len(self.boardClass.openCellSet) == self.boardClass.numNonMineCells and \
-                    self.boardClass.totalNumMines == self.boardClass.totalNumFlaggedCells:
+            if len(self.boardClass.openCellSet) == self.boardClass.numNonMineCells \
+                and self.boardClass.totalNumMines == self.boardClass.totalNumFlaggedCells:
                 self.gameState = "over"
-                self.popUpWindow("won")
-
-    def popUpWindow(self, state):
-        print("You "+state)
+                print("You won :)")
 
 
