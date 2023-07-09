@@ -18,7 +18,6 @@ class UI():
         self.boardSize, self.totalNumMines = boardSize, totalNumMines
         self.boardClass = Board(self.boardSize, self.totalNumMines)
         self.board = self.boardClass.board
-        #self.iconSize = self.screenSize[0]//self.boardSize[0], self.screenSize[1]//self.boardSize[1]
     
     def updateGrid(self):
         for x in range(self.boardSize[0]):
