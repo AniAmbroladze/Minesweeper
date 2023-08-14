@@ -66,7 +66,7 @@ class UI():
                         clickType = event.button
                         self.handleClick(xCell, yCell, clickType)
                         self.drawGrid()
-
+                        
             self.display(mousePos)
             pygame.display.update()
 
