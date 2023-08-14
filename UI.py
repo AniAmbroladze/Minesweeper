@@ -107,7 +107,6 @@ class UI():
                 self.screen = pygame.display.set_mode(self.screenSize)
                 self.drawGrid()
 
-
     def display(self,mousePos):
         self.screen.blit(self.grid_surf, (0, 0))
         button = []
@@ -131,7 +130,7 @@ class UI():
             self.board[x][y].unflagORflagCell()
 
         elif clickType == leftClick:
-            if self.board[x][y].isClosed:
+            if self.board[x][y].isClosed and not self.board[x][y].isFlagged:
                 self.board[x][y].revealCell()
                 self.boardClass.openCellSet.add((x, y))
                 if self.board[x][y].numMines == 0:
@@ -156,3 +155,4 @@ class UI():
                 print("You won :)")
 
 
+#დააჭირე სწორს და გახსენი 
