@@ -153,6 +153,3 @@ class UI():
                 and self.boardClass.totalNumMines == self.boardClass.totalNumFlaggedCells:
                 self.gameState = "over"
                 print("You won :)")
-
-
-#დააჭირე სწორს და გახსენი 
